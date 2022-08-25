@@ -1,0 +1,24 @@
+fileFormatVersion: 2
+guid: fe32d2a06dd6bc544bc00a8abbc940ca
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Barazhad
+  fontNames:
+  - Barazhad
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 20dd5d36abd63384881591416a9a05cf, type: 3}
+  - {fileID: 12800000, guid: aa2fe458add46984088a5647471535c5, type: 3}
+  - {fileID: 12800000, guid: c4944f4fc3a7f3e428801417ba1aed0f, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
