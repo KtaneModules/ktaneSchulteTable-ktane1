@@ -25,7 +25,9 @@ public class cruelSchulteTableScript : MonoBehaviour
 
     public Font[] fonts;
     public Material[] fontMats;
-    private string[] fontNames = new string[] { "5Geomedings", "Art of Creation", "Barazhad", "Sheikah", "Cait Sith", "Catabase", "Daedra", "Deadspace", "Epta", "Glipervelz", "Jungle Slang", "Kakoulookiam", "KHScala", "Kilgish", "Meeksa", "Modern Cybertronic", "Morse01", "Square Things", "Stars 3D", "Star Things", "Stylebats", "Templar Cipher", "Tile Things", "Wavefont", "Zuptype Pica" };
+    public Font normalFont;
+    public Material normalFontMat;
+    private string[] fontNames = new string[] { "5Geomedings", "Art of Creation", "Barazhad", "Sheikah", "Cait Sith", "Catabase", "Daedra", "Deadspace", "Epta", "Glipervelz", "Jungle Slang", "Kakoulookiam", "KHScala", "Kilgish", "Meeksa", "Modern Cybertronic", "Morse01", "Square Things", "Stars 3D", "Yelekish", "Stylebats", "Gobotronic", "Tile Things", "Wavefont", "Zuptype Pica" };
 
 
     private static string actualLetters = "ABCDEFGHIJKLMNOPQRSTUVWXY";
@@ -117,23 +119,19 @@ public class cruelSchulteTableScript : MonoBehaviour
             letters = sb.ToString();
             sb.Remove(0, sb.Length);
 
+            int rf = UnityEngine.Random.Range(0, fonts.Length);
             for (int i = 0; i < screenText.Length; i++)
             {
-                screenText[i].GetComponent<TextMesh>().text = letters[i].ToString();
-                int rf = UnityEngine.Random.Range(0, fonts.Length);
                 screenText[i].GetComponent<TextMesh>().font = fonts[rf];
-
-                if (rf == 3 || rf == 5) { screenText[i].GetComponent<TextMesh>().fontSize = 300; screenText[i].transform.localScale = new Vector3(0.0004f, 0.0004f, 0.0004f); }
+                screenText[i].GetComponent<TextMesh>().text = letters[i].ToString();
+                if (rf == 3 || rf == 5) { screenText[i].GetComponent<TextMesh>().fontSize = 100; screenText[i].transform.localScale = new Vector3(0.0015f, 0.0015f, 0.0015f); }
                 else if (rf == 8 || rf == 10) { screenText[i].GetComponent<TextMesh>().fontSize = 700; screenText[i].transform.localScale = new Vector3(0.0004f, 0.0004f, 0.0004f); }
                 else if (rf == 13 || rf == 23) { screenText[i].GetComponent<TextMesh>().fontSize = 500; screenText[i].transform.localScale = new Vector3(0.0008f, 0.0008f, 0.0008f); }
                 else { screenText[i].GetComponent<TextMesh>().fontSize = 500; screenText[i].transform.localScale = new Vector3(0.0004f, 0.0004f, 0.0004f); }
-
-                sb.Append(fontNames[rf] + ", ");
                 screenText[i].GetComponent<MeshRenderer>().material = fontMats[rf];
             }
-            sb.Remove(sb.Length - 2, 2);
             Debug.LogFormat("[Cruel Schulte Table #{0}] Module activated! Letters displayed in this order: {1}", moduleId, letters);
-            Debug.LogFormat("[Cruel Schulte Table #{0}] The encryptions used are (in reading order): {1}", moduleId, sb.ToString());
+            Debug.LogFormat("[Cruel Schulte Table #{0}] The encryption used on the module is {1}.", moduleId, fontNames[rf]);
             audio.PlaySoundAtTransform("start", transform);
             StartCoroutine("timer");
         }
@@ -153,6 +151,7 @@ public class cruelSchulteTableScript : MonoBehaviour
                     moduleActivated = false;
                     audio.PlaySoundAtTransform("solveCruel", transform);
                     timerStop();
+                    StartCoroutine(solveAnim());
                 }
             }
             else if (actualLetters.IndexOf(screenText[k].GetComponent<TextMesh>().text) == counter && !ascend)
@@ -167,8 +166,9 @@ public class cruelSchulteTableScript : MonoBehaviour
                     Debug.LogFormat("[Cruel Schulte Table #{0}] Correctly pressed all letters in order within the time limit! Module solved!", moduleId);
                     moduleSolved = true;
                     moduleActivated = false;
-                    audio.PlaySoundAtTransform("solve", transform);
+                    audio.PlaySoundAtTransform("solveCruel", transform);
                     timerStop();
+                    StartCoroutine(solveAnim());
                 }
             }
 
@@ -226,7 +226,7 @@ public class cruelSchulteTableScript : MonoBehaviour
 
     IEnumerator playSound(int counter)
     {
-        float d = select.length / 26;
+        float d = select.length / 27;
         audioSource.clip = MakeSubclip(select, d * (counter + 1), 0.02f);
         audioSource.Play();
         while (audioSource.isPlaying)
@@ -244,10 +244,10 @@ public class cruelSchulteTableScript : MonoBehaviour
         float delta = 0f;
         float y = progressBar.transform.localScale.y;
         float z = progressBar.transform.localScale.z;
-        float timeLimit = 150f;
+        float timeLimit = 300f;
         if (TwitchPlaysActive)
         {
-            timeLimit = 200f;
+            timeLimit = 320f;
         }
         while (delta < 1f)
         {
@@ -256,7 +256,7 @@ public class cruelSchulteTableScript : MonoBehaviour
             yield return null;
         }
         reset();
-        Debug.LogFormat("[Cruel Schulte Table #{0}] 30 second time limit reached! Module reset!", moduleId);
+        Debug.LogFormat("[Cruel Schulte Table #{0}] Time limit reached! Module reset!", moduleId);
     }
 
     IEnumerator strikeAnim()
@@ -278,8 +278,27 @@ public class cruelSchulteTableScript : MonoBehaviour
         isAnimating = false;
     }
 
+    IEnumerator solveAnim()
+    {
+        isAnimating = true;
+        int[][] pattern = new int[][] { new int[] { 0 }, new int[] { 1, 5 }, new int[] { 2, 6, 10 }, new int[] { 3, 7, 11, 15 }, new int[] { 4, 8, 12, 16, 20 }, new int[] { 9, 13, 17, 21 }, new int[] { 14, 18, 22 }, new int[] { 19, 23 }, new int[] { 24 } };
+        for (int i = 0; i < 9; i++)
+        {
+            for (int j = 0; j < pattern[i].Length; j++)
+            {
+                screenText[pattern[i][j]].GetComponent<TextMesh>().font = normalFont;
+                screenText[pattern[i][j]].GetComponent<MeshRenderer>().material = normalFontMat;
+                screenText[pattern[i][j]].GetComponent<TextMesh>().fontSize = 500;
+                screenText[pattern[i][j]].transform.localScale = new Vector3(0.0004f, 0.0004f, 0.0004f);
+            }
+            yield return new WaitForSeconds(0.2f);
+        }
+        yield return null;
+        isAnimating = false;
+    }
+
 #pragma warning disable 414
-    private readonly string TwitchHelpMessage = @"<!{0} start> to start the module, <!{0} press A1 B2 C3> to press the letters on the module, with letter being column, number being row, and top left is A1, <!{0} press 1 2 3> to press the letters denoted by their positions in reading order, top left being 1, for TP the time limit is extended to 200 seconds";
+    private readonly string TwitchHelpMessage = @"<!{0} start> to start the module, <!{0} press A1 B2 C3> to press the letters on the module, with letter being column, number being row, and top left is A1, <!{0} press 1 2 3> to press the letters denoted by their positions in reading order, top left being 1, for TP the time limit is extended to 320 seconds";
 #pragma warning restore 414
 
     IEnumerator ProcessTwitchCommand(string command)

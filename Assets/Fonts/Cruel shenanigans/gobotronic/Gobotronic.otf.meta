@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 6b9a9c0e6a4ad2246ae243225668e5a2
+guid: 5f1fab0af16000243a7cc854c39b0ad0
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -8,9 +8,9 @@ TrueTypeFontImporter:
   characterSpacing: 0
   characterPadding: 1
   includeFontData: 1
-  fontName: Star Things 2
+  fontName: Gobotronic
   fontNames:
-  - Star Things 2
+  - Gobotronic
   fallbackFontReferences: []
   customCharacters: 
   fontRenderingMode: 0

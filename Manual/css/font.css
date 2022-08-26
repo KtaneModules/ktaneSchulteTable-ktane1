@@ -510,8 +510,8 @@
 }
 
 @font-face{
-	font-family: "starthings";
-	src: local("starthings"), url(../font/starthings.ttf)
+	font-family: "Yelekish_Font";
+	src: local("Yelekish_Font"), url(../font/Yelekish_Font.ttf)
 }
 
 @font-face{
@@ -525,8 +525,8 @@
 }
 
 @font-face{
-	font-family: "TemplarsCipherPlus";
-	src: local("TemplarsCipherPlus"), url(../font/TemplarsCipherPlus.otf)
+	font-family: "Gobotronic";
+	src: local("Gobotronic"), url(../font/Gobotronic.otf)
 }
 
 @font-face{

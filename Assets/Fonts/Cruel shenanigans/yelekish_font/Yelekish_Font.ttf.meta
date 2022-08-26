@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 02053c21c25ad6a4fb7b23e27ac318d0
+guid: 8dfa0d8e95fa1e348a2db1ebfafa4c88
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -8,9 +8,9 @@ TrueTypeFontImporter:
   characterSpacing: 0
   characterPadding: 1
   includeFontData: 1
-  fontName: TemplarsCipherPlus
+  fontName: Yelekish Font
   fontNames:
-  - TemplarsCipherPlus
+  - Yelekish Font
   fallbackFontReferences: []
   customCharacters: 
   fontRenderingMode: 0
