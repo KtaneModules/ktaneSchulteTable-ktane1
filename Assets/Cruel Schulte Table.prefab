@@ -5711,7 +5711,7 @@ MonoBehaviour:
   - {fileID: 12800000, guid: 5f1fab0af16000243a7cc854c39b0ad0, type: 3}
   - {fileID: 12800000, guid: 81131f2c50f93cc45a87b8be9b7098eb, type: 3}
   - {fileID: 12800000, guid: 860218b5f1b4687459cb00051ea9e1f7, type: 3}
-  - {fileID: 12800000, guid: 0bc7ad5f4cdbdf748bf2204974a25e0e, type: 3}
+  - {fileID: 12800000, guid: 4ff2206c29b866346824bc56a2207df9, type: 3}
   fontMats:
   - {fileID: 2100000, guid: ccf95d0670912ac4293ffc264f8eb85e, type: 2}
   - {fileID: 2100000, guid: 1c3ee7bd2c752784b87459ca21181f03, type: 2}
@@ -5737,7 +5737,7 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 8229f42c357a99c48a42bed5fb687c1a, type: 2}
   - {fileID: 2100000, guid: 81510667d9a66e34081d5e3a5116ded3, type: 2}
   - {fileID: 2100000, guid: 1c2e9530f8102ea4ab42d689a5c35e0c, type: 2}
-  - {fileID: 2100000, guid: a3751f7149f81fe4caf58056992ba639, type: 2}
+  - {fileID: 2100000, guid: 87d70862f21ad974da6e886cb81cadca, type: 2}
   normalFont: {fileID: 12800000, guid: 20ed7da722a810a4b89574f61ba53d63, type: 3}
   normalFontMat: {fileID: 2100000, guid: 431b95f7cb55f834da41f00e2dcddfe4, type: 2}
 --- !u!114 &114623715511415994

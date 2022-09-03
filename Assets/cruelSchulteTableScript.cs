@@ -27,7 +27,7 @@ public class cruelSchulteTableScript : MonoBehaviour
     public Material[] fontMats;
     public Font normalFont;
     public Material normalFontMat;
-    private string[] fontNames = new string[] { "5Geomedings", "Art of Creation", "Barazhad", "Sheikah", "Cait Sith", "Catabase", "Daedra", "Deadspace", "Epta", "Glipervelz", "Jungle Slang", "Kakoulookiam", "KHScala", "Kilgish", "Meeksa", "Modern Cybertronic", "Morse01", "Square Things", "Stars 3D", "Yelekish", "Stylebats", "Gobotronic", "Tile Things", "Wavefont", "Zuptype Pica" };
+    private string[] fontNames = new string[] { "5Geomedings", "Art of Creation", "Barazhad", "Sheikah", "Cait Sith", "Catabase", "Daedra", "Deadspace", "Epta", "Glipervelz", "Jungle Slang", "Kakoulookiam", "KHScala", "Kilgish", "Meeksa", "Modern Cybertronic", "Morse01", "Square Things", "Stars 3D", "Yelekish", "Stylebats", "Gobotronic", "Tile Things", "Wavefont", "Binary Soldiers" };
 
 
     private static string actualLetters = "ABCDEFGHIJKLMNOPQRSTUVWXY";

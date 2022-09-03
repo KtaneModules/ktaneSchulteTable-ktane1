@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 0bc7ad5f4cdbdf748bf2204974a25e0e
+guid: 4ff2206c29b866346824bc56a2207df9
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -8,9 +8,9 @@ TrueTypeFontImporter:
   characterSpacing: 0
   characterPadding: 1
   includeFontData: 1
-  fontName: zuptype_pica
+  fontName: Binary Soldiers
   fontNames:
-  - zuptype_pica
+  - Binary Soldiers
   fallbackFontReferences: []
   customCharacters: 
   fontRenderingMode: 0

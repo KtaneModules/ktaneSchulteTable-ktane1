@@ -423,8 +423,8 @@
 }
 
 @font-face{
-	font-family: "ArtOfCreation_Final-Regular";
-	src: local("ArtOfCreation_Final-Regular"), url(../font/ArtOfCreation_Final-Regular.ttf)
+	font-family: "ArtOfCreation";
+	src: local("ArtOfCreation"), url(../font/ArtOfCreation.ttf)
 }
 
 @font-face{
@@ -439,8 +439,8 @@
 }
 
 @font-face{
-	font-family: "Cait_sith-Regular";
-	src: local("Cait_sith-Regular"), url(../font/Cait_sith-Regular.ttf)
+	font-family: "Cait_sith";
+	src: local("Cait_sith"), url(../font/Cait_sith.ttf)
 }
 
 @font-face{
@@ -485,8 +485,8 @@
 
 
 @font-face{
-	font-family: "Kilgish-Regular";
-	src: local("Kilgish-Regular"), url(../font/Kilgish-Regular.ttf)
+	font-family: "Kilgish";
+	src: local("Kilgish"), url(../font/Kilgish.ttf)
 }
 
 @font-face{
@@ -500,8 +500,8 @@
 }
 
 @font-face{
-	font-family: "Morse02";
-	src: local("Morse02"), url(../font/Morse02.ttf)
+	font-family: "Morse01";
+	src: local("Morse01"), url(../font/Morse01.ttf)
 }
 
 @font-face{
@@ -510,8 +510,8 @@
 }
 
 @font-face{
-	font-family: "Yelekish_Font";
-	src: local("Yelekish_Font"), url(../font/Yelekish_Font.ttf)
+	font-family: "Yelekish";
+	src: local("Yelekish"), url(../font/Yelekish.ttf)
 }
 
 @font-face{
@@ -520,8 +520,8 @@
 }
 
 @font-face{
-	font-family: "STYLBCC_";
-	src: local("STYLBCC_"), url(../font/STYLBCC_.ttf)
+	font-family: "StyleBats";
+	src: local("StyleBats"), url(../font/StyleBats.ttf)
 }
 
 @font-face{
@@ -540,6 +540,6 @@
 }
 
 @font-face{
-	font-family: "zuptype_pica";
-	src: local("zuptype_pica"), url(../font/zuptype_pica.ttf)
+	font-family: "BinarySoldiers";
+	src: local("BinarySoldiers"), url(../font/BinarySoldiers.ttf)
 }
