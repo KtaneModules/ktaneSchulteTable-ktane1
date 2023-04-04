@@ -227,7 +227,7 @@ public class schulteTableScript: MonoBehaviour
         float timeLimit = 30f;
         if (TwitchPlaysActive)
         {
-            timeLimit = 50f;
+            timeLimit = 60f;
         }
         while (delta < 1f)
         {
@@ -236,7 +236,7 @@ public class schulteTableScript: MonoBehaviour
             yield return null;
         }
         reset();
-        Debug.LogFormat("[Schulte Table #{0}] 30 second time limit reached! Module reset!", moduleId);
+        Debug.LogFormat("[Schulte Table #{0}] Time limit reached! Module reset!", moduleId);
     }
 
     IEnumerator funnyRotate(int k)
@@ -282,7 +282,7 @@ public class schulteTableScript: MonoBehaviour
     }
 
     #pragma warning disable 414
-    private readonly string TwitchHelpMessage = @"<!{0} start> to start the module, <!{0} press A1 B2 C3> to press the numbers on the module, with letter being column, number being row, and top left is A1, <!{0} press 1 2 3> to press the numbers denoted by their positions in reading order, top left being 1, for TP the time limit is extended to 50 seconds";
+    private readonly string TwitchHelpMessage = @"<!{0} start> to start the module, <!{0} press A1 B2 C3> to press the numbers on the module, with letter being column, number being row, and top left is A1, <!{0} press 1 2 3> to press the numbers denoted by their positions in reading order, top left being 1, for TP the time limit is extended to 60 seconds";
     #pragma warning restore 414
 
     IEnumerator ProcessTwitchCommand(string command)
