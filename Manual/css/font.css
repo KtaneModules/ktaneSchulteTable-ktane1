@@ -449,11 +449,6 @@
 }
 
 @font-face{
-	font-family: "Daedra";
-	src: local("Daedra"), url(../font/Daedra.otf)
-}
-
-@font-face{
 	font-family: "DeadSpace_Unitology";
 	src: local("DeadSpace_Unitology"), url(../font/DeadSpace_Unitology.ttf)
 }
@@ -525,16 +520,6 @@
 }
 
 @font-face{
-	font-family: "Gobotronic";
-	src: local("Gobotronic"), url(../font/Gobotronic.otf)
-}
-
-@font-face{
-	font-family: "tilethings";
-	src: local("tilethings"), url(../font/tilethings.ttf)
-}
-
-@font-face{
 	font-family: "wavefont";
 	src: local("wavefont"), url(../font/wavefont.ttf)
 }
@@ -542,4 +527,19 @@
 @font-face{
 	font-family: "BinarySoldiers";
 	src: local("BinarySoldiers"), url(../font/BinarySoldiers.ttf)
+}
+
+@font-face{
+	font-family: "LuciusCipher";
+	src: local("LuciusCipher"), url(../font/LuciusCipher.ttf)
+}
+
+@font-face{
+	font-family: "Leafs";
+	src: local("Leafs"), url(../font/Leafs.ttf)
+}
+
+@font-face{
+	font-family: "MeowsPhone";
+	src: local("MeowsPhone"), url(../font/MeowsPhone.ttf)
 }

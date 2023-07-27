@@ -27,7 +27,7 @@ public class cruelSchulteTableScript : MonoBehaviour
     public Material[] fontMats;
     public Font normalFont;
     public Material normalFontMat;
-    private string[] fontNames = new string[] { "5Geomedings", "Art of Creation", "Barazhad", "Sheikah", "Cait Sith", "Catabase", "Daedra", "Deadspace", "Epta", "Glipervelz", "Jungle Slang", "Kakoulookiam", "KHScala", "Kilgish", "Meeksa", "Modern Cybertronic", "Morse01", "Square Things", "Stars 3D", "Yelekish", "Stylebats", "Gobotronic", "Tile Things", "Wavefont", "Binary Soldiers" };
+    private string[] fontNames = new string[] { "5Geomedings", "Art of Creation", "Barazhad", "Sheikah", "Cait Sith", "Catabase", "Leafs", "Deadspace", "Epta", "Glipervelz", "Jungle Slang", "Kakoulookiam", "KHScala", "Kilgish", "Meeksa", "Modern Cybertronic", "Morse01", "Square Things", "Stars 3D", "Yelekish", "Stylebats", "MeowsPhone", "Lucius Cipher", "Wavefont", "Binary Soldiers" };
 
 
     private static string actualLetters = "ABCDEFGHIJKLMNOPQRSTUVWXY";
@@ -127,6 +127,7 @@ public class cruelSchulteTableScript : MonoBehaviour
                 if (rf == 3 || rf == 5) { screenText[i].GetComponent<TextMesh>().fontSize = 100; screenText[i].transform.localScale = new Vector3(0.0015f, 0.0015f, 0.0015f); }
                 else if (rf == 8 || rf == 10) { screenText[i].GetComponent<TextMesh>().fontSize = 700; screenText[i].transform.localScale = new Vector3(0.0004f, 0.0004f, 0.0004f); }
                 else if (rf == 13 || rf == 23) { screenText[i].GetComponent<TextMesh>().fontSize = 500; screenText[i].transform.localScale = new Vector3(0.0008f, 0.0008f, 0.0008f); }
+                else if (rf == 6) { screenText[i].GetComponent<TextMesh>().fontSize = 900; }
                 else { screenText[i].GetComponent<TextMesh>().fontSize = 500; screenText[i].transform.localScale = new Vector3(0.0004f, 0.0004f, 0.0004f); }
                 screenText[i].GetComponent<MeshRenderer>().material = fontMats[rf];
             }
