@@ -304,44 +304,44 @@ public class cruelSchulteTableScript : MonoBehaviour
 
     IEnumerator ProcessTwitchCommand(string command)
     {
-        command = command.ToLowerInvariant().Trim();
-        string[] parameters = command.Split(' ');
-        yield return null;
-        if (Regex.IsMatch(command, @"^\s*start\s*$", RegexOptions.IgnoreCase | RegexOptions.CultureInvariant))
+        List<string> parameters = command.ToLowerInvariant().Trim().Split(' ').ToList();
+        command = parameters[0];
+        parameters.RemoveAt(0);
+
+        if (command == "start" || command == "begin")
         {
-            if (isAnimating) { yield return "sendtochaterror Animation, command ignored"; yield break; }
-            screens[0].GetComponent<KMSelectable>().OnInteract();
+            if (isAnimating)     yield return "sendtochaterror!h The module is currently animating. The command was ignored.";
+            if (moduleActivated) yield return "sendtochaterror!h The module has already been started. The command was ignored.";
+
             yield return null;
+            screens[0].GetComponent<KMSelectable>().OnInteract();
         }
-        else if (Regex.IsMatch(parameters[0], @"^\s*press\s*$", RegexOptions.IgnoreCase | RegexOptions.CultureInvariant))
+        else if (command == "press")
         {
-            if (parameters.Length < 2) { yield return "sendtochaterror Invalid command"; yield break; }
-            if (isAnimating) { yield return "sendtochaterror Animation, command ignored"; yield break; }
-            if (!moduleActivated) { yield return "sendtochaterror Module not started, command ignored"; yield break; }
+            if (parameters.Count < 1) yield break;
+            if (isAnimating)          yield return "sendtochaterror!h The module is currently animating. The command was ignored.";
+            if (!moduleActivated)     yield return "sendtochaterror!h The module has not been started. The command was ignored.";
+
+            int n;
             var presses = new List<KMSelectable>();
-            for (int i = 1; i < parameters.Length; i++)
+            foreach (string coord in parameters)
             {
-                int n = 0;
-                bool c = int.TryParse(parameters[i], out n);
-                if (c)
-                {
-                    if (n < 1 || n > 36) { yield return "sendtochaterror Invalid command"; yield break; }
+                if (int.TryParse(coord, out n) && n >= 1 && n <= 25) // From 1-25, in reading order (A1 B1 C1 D1 E1 A2 ...)
                     presses.Add(screens[n - 1].GetComponent<KMSelectable>());
-                }
+                else if (Regex.IsMatch(coord, @"^[a-e][1-5]$")) // Specified coordinate, column, then row
+                    presses.Add(screens["abcde".IndexOf(coord[0]) + "12345".IndexOf(coord[1]) * 5].GetComponent<KMSelectable>());
                 else
-                {
-                    if (parameters[i].Length != 2 || !"abcde".Contains(parameters[i][0]) || !"12345".Contains(parameters[i][1]))
-                    {
-                        yield return "sendtochaterror Invalid command"; yield break;
-                    }
-                    presses.Add(screens["abcde".IndexOf(parameters[i][0]) + "12345".IndexOf(parameters[i][1]) * 5].GetComponent<KMSelectable>());
-                }
+                    yield return String.Format("sendtochaterror!h Unrecognized coordinate '{0}', valid coordinates are A1-E5 (column, then row) or 1-25 (reading order).", coord);
             }
-            foreach (KMSelectable s in presses) { s.OnInteract(); yield return new WaitForSeconds(0.02f); }
-        }
-        else
-        {
-            yield return "sendtochaterror Invalid command"; yield break;
+
+            yield return null;
+            foreach (KMSelectable s in presses)
+            {
+                if (isAnimating) yield break; // Time expired mid-command
+
+                s.OnInteract();
+                yield return new WaitForSeconds(0.02f);
+            }
         }
     }
 
